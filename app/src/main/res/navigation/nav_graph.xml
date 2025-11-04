@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.cat_and_mise.ui.StartFragment"
+        android:label="Кошки-Мышки"
+        tools:layout="@layout/fragment_start">
+
+        <action
+            android:id="@+id/action_startFragment_to_levelsFragment"
+            app:destination="@id/levelsFragment" />
+
+        <action
+            android:id="@+id/action_startFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+
+        <action
+            android:id="@+id/action_startFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/levelsFragment"
+        android:name="com.example.cat_and_mise.ui.level.LevelsFragment"
+        android:label="Выбор уровня"
+        tools:layout="@layout/fragment_levels">
+
+        <action
+            android:id="@+id/action_levelsFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+
+        <action
+            android:id="@+id/action_levelsFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.cat_and_mise.ui.settings.SettingsFragment"
+        android:label="Настройки"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.example.cat_and_mise.ui.leaderboard.LeaderboardFragment"
+        android:label="Таблица рекордов"
+        tools:layout="@layout/fragment_leaderboard">
+
+        <action
+            android:id="@+id/action_leaderboardFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+
+        <action
+            android:id="@+id/action_leaderboardFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.cat_and_mise.game.GameFragment"
+        android:label="Игра"
+        tools:layout="@layout/fragment_game" />
+
+</navigation>
