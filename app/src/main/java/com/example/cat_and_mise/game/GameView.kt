@@ -59,15 +59,6 @@ class GameView @JvmOverloads constructor(
         cheeseBitmap = createCircleBitmap(cheeseRadius.toInt(), Color.YELLOW)
         catBitmap = createCircleBitmap(catRadius.toInt(), Color.RED)
 
-        // Инициализируем мышь в центре
-        if (playerMouse.x == 0f && playerMouse.y == 0f) {
-            playerMouse.x = width / 2f
-            playerMouse.y = height / 2f
-        }
-
-        targetX = playerMouse.x
-        targetY = playerMouse.y
-
         isGameRunning = true
         gameOver = false
         score = 0
@@ -118,6 +109,13 @@ class GameView @JvmOverloads constructor(
         val width = width
         val height = height
 
+        if (playerMouse.x == 0f && playerMouse.y == 0f) {
+            playerMouse.x = width / 2f
+            playerMouse.y = height / 2f
+            targetX = playerMouse.x
+            targetY = playerMouse.y
+        }
+
         playerMouse.update(targetX, targetY)
 
         // Обновляем кошек
@@ -165,7 +163,7 @@ class GameView @JvmOverloads constructor(
             else -> 5
         }
 
-        if (cats.size < targetCatCount && Random.nextDouble() < 0.01) {
+        if (cats.size < targetCatCount && Random.nextDouble() < 0.03) {
             spawnCat(width, height, playerMouse.radius * 1.2f)
         }
         invalidate()
